@@ -3,24 +3,17 @@ const { program } = require('commander');
 const fs = require('fs');
 const path = require('path');
 const { pipeline } = require('stream');
+const chalk = require('chalk');
 
 const CaesarStream = require('./transform');
 
 program.version('0.0.1');
 
 program
-  .option('-s, --shift <number>', 'position shift') // make required
+  .requiredOption('-s, --shift <number>', 'position shift') // make required
   .option('-i, --input <filename>', 'input file')
   .option('-o, --output <filename>', 'output file')
-  .option('-a, --action [type]', 'encode/decode'); // make required
-// .action(() => {
-//   const options = program.opts();
-
-//   if (options.action !== 'encode' || options.action !== 'decode') {
-//     process.stderr.write('Error: Invalid action');
-//     process.exit(1);
-//   }
-// });
+  .requiredOption('-a, --action [type]', 'encode/decode'); // make required
 
 program.parse(process.argv);
 
@@ -34,6 +27,13 @@ const outputFile = path.basename(program.output);
 
 // console.log(options, inputFile, outputFile);
 
+// const inputStream = fs.createReadStream(path.join(__dirname, inputFile), {
+//   encoding: 'utf8'
+// });
+// const outputStream = fs.createWriteStream(path.join(__dirname, outputFile), {
+//   flags: 'a'
+// });
+
 let inputStream;
 let outputStream;
 
@@ -43,10 +43,10 @@ if (program.input) {
   });
 } else {
   inputStream = process.stdin;
-  inputStream.on('data', data => data.toString());
+  console.log(chalk.blue('Enter text: '));
 }
 
-if (process.output) {
+if (program.output) {
   outputStream = fs.createWriteStream(path.join(__dirname, outputFile), {
     flags: 'a'
   });
@@ -54,9 +54,14 @@ if (process.output) {
   outputStream = process.stdout;
 }
 
-pipeline(inputStream, new CaesarStream(options), outputStream, err =>
-  process.stderr.write('Damn! Check your files, bro...', err)
-);
+pipeline(inputStream, new CaesarStream(options), outputStream, err => {
+  if (err) {
+    console.error(chalk.red('Error: '), err.message);
+    process.exit(1);
+  } else {
+    process.stdout.write(chalk.cyan('Success!'));
+  }
+});
 
 // fs.createReadStream(path.join(__dirname, inputFile), {
 //   flags: 'r',
@@ -97,6 +102,7 @@ pipeline(inputStream, new CaesarStream(options), outputStream, err =>
 // node app.js -s7 -i 'encoded.txt' -o 'decoded.txt' -a 'decode'
 
 // // TODO-SAT:если переданы все аргументы, приложение читает из файла и записывает в файл зашифрованный/расшифрованный текст, при этом предыдущие записи не удаляются
-// TODO-SAT:если переданы аргументы с путями к файлам, но файлы отсутствуют (или к ним невозможен доступ), приложение передает соответствующее сообщение в process.stderr и прoцесс завершается с кодом, отличным от 0
-// TODO-SUN:если не передан аргумент с путем до файла на чтение, то чтение осуществляется из process.stdin
+// TODO-SAT: (проверить на output) если переданы аргументы с путями к файлам, но файлы отсутствуют (или к ним невозможен доступ), приложение передает соответствующее сообщение в process.stderr и прoцесс завершается с кодом, отличным от 0
+// // TODO-SUN:если не передан аргумент с путем до файла на чтение, то чтение осуществляется из process.stdin
 // // TODO-SUN:если не передан аргумент с путем до файла на запись, то вывод осуществляется в process.stdout
+// TODO: decode
