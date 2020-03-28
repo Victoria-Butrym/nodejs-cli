@@ -3,68 +3,69 @@ const { StringDecoder } = require('string_decoder');
 // const fs = require('fs');
 
 module.exports = class CaesarStream extends stream.Transform {
-  // class CaesarStream extends stream.Transform {
   constructor(options) {
-    // options = Object.assign({}, options, {
-    //   decodeStrings: false
-    // });
     super(options);
 
     this.shift = options.shift;
     this.action = options.action;
   }
 
-  //   simplifyShift(shift) {
-  //     let simplifiedShift = shift % 26;
-  //     if (simplifiedShift < 0) {
-  //       simplifiedShift = 26 + simplifiedShift;
-  //     }
-  //     return simplifiedShift;
-  //   }
+  simplifyShift(shift) {
+    let simplifiedShift = shift % 26;
+    if (simplifiedShift < 0) {
+      simplifiedShift = 26 + simplifiedShift;
+    }
+    return simplifiedShift;
+  }
 
   encode(str, shift) {
+    // console.log('encoding');
     let encoded = '';
-
-    if (this.action === 'decode') {
-      this.shift *= -1;
-    }
-
-    // this.shift = this.simplifyShift(this.shift);
+    this.shift = this.simplifyShift(this.shift);
 
     for (let i = 0; i < str.length; i++) {
-      const ascii = str[i].charCodeAt();
+      let ascii = str.charCodeAt(i);
 
-      if ((ascii >= 65 && ascii <= 77) || (ascii >= 97 && ascii <= 109)) {
-        encoded += String.fromCharCode(ascii + shift);
-      } else if (
-        (ascii >= 77 && ascii <= 90) ||
-        (ascii >= 110 && ascii <= 122)
-      ) {
-        encoded += String.fromCharCode(ascii - shift);
-      } else {
-        encoded += str[i];
+      if (ascii >= 65 && ascii <= 90) {
+        ascii = ((ascii - 65 + shift) % 26) + 65; // (ascii - 65) * 26 - shift + 65 = ascii
+      } else if (ascii >= 97 && ascii <= 122) {
+        ascii = ((ascii - 97 + shift) % 26) + 97;
       }
+
+      encoded += String.fromCharCode(ascii);
     }
 
     return encoded;
   }
 
+  decode(str, shift) {
+    // console.log('decoding');
+    let decoded = '';
+    this.shift = this.simplifyShift(this.shift);
+
+    for (let i = 0; i < str.length; i++) {
+      let ascii = str.charCodeAt(i);
+
+      if (ascii >= 65 && ascii <= 90) {
+        ascii = ((ascii + 65 - shift) % 26) - 65;
+      } else if (ascii >= 97 && ascii <= 122) {
+        ascii = ((ascii + 97 - shift) % 26) - 97;
+      }
+
+      decoded += String.fromCharCode(ascii);
+    }
+
+    return decoded;
+  }
+
   _transform(chunk, encoding, callback) {
-    // if (encoding !== 'utf8') {
-    //   this.emit('error', new Error('Only utf-8 sources are supported!'));
-    // }
-
-    // this.push(this.encode(chunk, this.shift));
-
     const decoder = new StringDecoder('utf-8');
     chunk = decoder.write(chunk);
-    callback(null, this.encode(chunk, this.shift));
-    // console.log(chunk.toString());
-    // this.push(this.encode(chunk, this.shift));
-    // callback(null, this.encode(chunk, this.shift));
+    callback(
+      null,
+      this.action === 'encode'
+        ? this.encode(chunk, this.shift)
+        : this.decode(chunk, this.shift)
+    );
   }
 };
-
-// fs.createReadStream('./encoded.txt', 'utf8')
-//   .pipe(new CaesarStream({ shift: 7, action: 'encode' }))
-//   .pipe(fs.createWriteStream('./decoded.txt'));
