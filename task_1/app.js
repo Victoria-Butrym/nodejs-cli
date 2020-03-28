@@ -1,3 +1,4 @@
+/* eslint-disable no-process-exit */
 const { program } = require('commander');
 const fs = require('fs');
 const path = require('path');
@@ -24,9 +25,27 @@ const outputFile = path.basename(program.output);
 
 console.log(options, inputFile, outputFile);
 
-fs.createReadStream(path.join(__dirname, inputFile), 'utf8')
+fs.createReadStream(path.join(__dirname, inputFile), {
+  flags: 'r',
+  encoding: 'utf8'
+})
+  .on('error', err => {
+    process.stderr.write(err.message);
+    process.exit(1);
+  })
   .pipe(new CaesarStream(options))
-  .pipe(fs.createWriteStream(path.join(__dirname, outputFile)), 'utf8');
+  .on('error', err => {
+    process.stderr.write(err.message);
+    process.exit(1);
+  })
+  .pipe(
+    fs
+      .createWriteStream(path.join(__dirname, outputFile), { flags: 'a' })
+      .on('error', err => {
+        process.stderr.write(err.message);
+        process.exit(1);
+      })
+  );
 
 // if (program.input) {
 //   encodeFile(inputStream, +program.shift);
