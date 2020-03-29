@@ -5,7 +5,7 @@ const fs = require('fs');
 const exit = process.exit;
 
 function validateOptions(args) {
-  if (isNaN(+args.shift)) {
+  if (isNaN(args.shift)) {
     process.stderr.write(`${chalk.red('Error: ')}shift is not a number`);
     exit(1);
   }
