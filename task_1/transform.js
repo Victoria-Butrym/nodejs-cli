@@ -9,9 +9,13 @@ module.exports = class CaesarStream extends stream.Transform {
     this.action = options.action;
   }
 
+  validateShift(shift) {
+    if (shift < 0) return shift + 26;
+    if (shift > 26 && shift % 26 !== 0) return shift % 26;
+  }
+
   encode(str, shift) {
-    if (shift < 0) return this.encode(str, shift + 26);
-    if (shift > 26 && shift % 26 !== 0) return this.encode(str, shift % 26);
+    this.validateShift(shift);
     let encoded = '';
 
     for (let i = 0; i < str.length; i++) {
