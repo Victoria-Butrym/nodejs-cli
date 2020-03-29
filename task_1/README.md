@@ -14,9 +14,9 @@ This is a CLI tool that is used to encode and decode text by [Caesar cipher](htt
 
 CLI tool accepts 4 options (short alias and full name):
 
-1. **-s, --shift <number>** a shift
-2. **-i, --input <filename>** an input file path
-3. **-o, --output <filename>** an output file path
+1. **-s, --shift \<number>** a shift
+2. **-i, --input \<filename>** an input file path
+3. **-o, --output \<filename>** an output file path
 4. **-a, --action [type]** an action encode/decode
 
 **Warning!**
@@ -36,4 +36,4 @@ $ node app.js --shift 7 --input './text.txt' --output './encoded.txt' --action '
 node app.js --shift 7 --input './encoded.txt' --output './decoded.txt' --action 'decode'
 ```
 
-**P.S.** If you're using `stdin` as an input source, press <kbd>Ctrl</kbd> + <kbd>C</kbd> to exit the process and see all transformed text in the output file
+**P.S.** If you're using **stdin** as an input source, press <kbd>Ctrl</kbd> + <kbd>C</kbd> to exit the process and see all transformed text in the output file
