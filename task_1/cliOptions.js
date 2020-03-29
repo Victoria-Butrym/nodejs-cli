@@ -12,7 +12,7 @@ function getOptions() {
 }
 
 program
-  .requiredOption('-s, --shift <number>', 'position shift')
+  .requiredOption('-s, --shift <number>', 'position shift', value => +value)
   .option('-i, --input <filename>', 'input file')
   .option('-o, --output <filename>', 'output file')
   .requiredOption('-a, --action [type]', 'encode/decode');
