@@ -1,9 +1,0 @@
-this is text in STDOUT
-This tool can be use to find spelling , gramar or stylistic errors in english texts. 
-just paste some text in the the box and click 'Submit to check . 
-Additionally, their are many different dialects you can chose from. 
-Additionally , you can hover your mouse over a error to see it's description and an useful list 
-of posible corrections. You don´t need to worry for your writing skills any more,
-improving you're text has never be more easier!
-
-A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
