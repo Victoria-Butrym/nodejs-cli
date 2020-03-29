@@ -11,6 +11,7 @@ module.exports = class CaesarStream extends stream.Transform {
 
   encode(str, shift) {
     if (shift < 0) return this.encode(str, shift + 26);
+    if (shift > 26 && shift % 26 !== 0) return this.encode(str, shift % 26);
     let encoded = '';
 
     for (let i = 0; i < str.length; i++) {
