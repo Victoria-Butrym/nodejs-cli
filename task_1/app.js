@@ -71,12 +71,3 @@ pipeline(inputStream, new CaesarStream(options), outputStream, err => {
     process.stdout.write(chalk.cyan('Success!'));
   }
 });
-
-// node app.js -s7 -i './text.txt' -o './encoded.txt' -a 'encode'
-// node app.js -s7 -i './encoded.txt' -o './decoded.txt' -a 'decode'
-
-// // TODO-SAT:если переданы все аргументы, приложение читает из файла и записывает в файл зашифрованный/расшифрованный текст, при этом предыдущие записи не удаляются
-// // TODO-SAT: (проверить на output) если переданы аргументы с путями к файлам, но файлы отсутствуют (или к ним невозможен доступ), приложение передает соответствующее сообщение в process.stderr и прoцесс завершается с кодом, отличным от 0
-// // TODO-SUN:если не передан аргумент с путем до файла на чтение, то чтение осуществляется из process.stdin
-// // TODO-SUN:если не передан аргумент с путем до файла на запись, то вывод осуществляется в process.stdout
-// // TODO: README
