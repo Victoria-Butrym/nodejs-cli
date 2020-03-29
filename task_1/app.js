@@ -1,19 +1,19 @@
 /* eslint-disable no-sync */
-/* eslint-disable no-process-exit */
-const { program } = require('./cliOptions');
 const fs = require('fs');
 const path = require('path');
 const { pipeline } = require('stream');
 const chalk = require('chalk');
 
 const CaesarStream = require('./transform');
+const { program } = require('./cliOptions');
 
 program.parse(process.argv);
 
 const commands = program.opts();
+const exit = process.exit;
 
 const options = {
-  shift: +commands.shift,
+  shift: commands.shift,
   action: commands.action
 };
 
@@ -29,7 +29,7 @@ if (commands.input) {
   });
 } else {
   inputStream = process.stdin;
-  console.log(chalk.blue('Enter text: '));
+  console.log(chalk.blue('Enter text, sweetheart: '));
 }
 
 if (commands.output) {
@@ -46,28 +46,27 @@ if (commands.action.length === undefined) {
       'Error: '
     )}action is not defined! \nShould be either "encode" or "decode"`
   );
-  process.exit(1);
+  exit(1);
 }
 
 if (commands.output && !fs.existsSync(commands.output)) {
   process.stderr.write(
     `${chalk.red('Error: ')}output file is not accessable or doesn't exist`
   );
-  process.exit(1);
+  exit(1);
 }
 
 if (commands.input && !fs.existsSync(commands.input)) {
   process.stderr.write(
     `${chalk.red('Error: ')}input file is not accessable or doesn't exist`
   );
-  process.exit(1);
+  exit(1);
 }
 
 pipeline(inputStream, new CaesarStream(options), outputStream, err => {
   if (err) {
-    // console.error(chalk.red('Error: '), err.message);
     console.error(chalk.red('Failed!'));
-    process.exit(1);
+    exit(1);
   } else {
     process.stdout.write(chalk.cyan('Success!'));
   }
@@ -80,4 +79,4 @@ pipeline(inputStream, new CaesarStream(options), outputStream, err => {
 // // TODO-SAT: (проверить на output) если переданы аргументы с путями к файлам, но файлы отсутствуют (или к ним невозможен доступ), приложение передает соответствующее сообщение в process.stderr и прoцесс завершается с кодом, отличным от 0
 // // TODO-SUN:если не передан аргумент с путем до файла на чтение, то чтение осуществляется из process.stdin
 // // TODO-SUN:если не передан аргумент с путем до файла на запись, то вывод осуществляется в process.stdout
-// TODO: decode
+// TODO: README
