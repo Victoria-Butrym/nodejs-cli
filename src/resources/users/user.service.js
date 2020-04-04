@@ -1,5 +1,8 @@
 const usersRepo = require('./user.memory.repository');
 
-const getAll = () => usersRepo.getAll();
+const getAll = async () => {
+  const users = await usersRepo.getAll();
+  return { code: 200, body: users };
+};
 
 module.exports = { getAll };
