@@ -16,4 +16,17 @@ router.route('/:id').get(async (req, res) => {
   return res.status(user.code).json(user.body);
 });
 
+router.route('/').post(async (req, res) => {
+  const userInfo = req.body;
+  const newUser = await usersService.createUser(userInfo);
+  return res.status(newUser.code).json(newUser.body);
+});
+
+router.route('/:id').delete(async (req, res) => {
+  const id = req.params.id;
+
+  const remainUsers = await usersService.deleteUser(id);
+  return res.status(remainUsers.code).json(remainUsers.body);
+});
+
 module.exports = router;

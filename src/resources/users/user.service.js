@@ -10,4 +10,14 @@ const getUserByID = async id => {
   return { code: 200, body: user };
 };
 
-module.exports = { getAll, getUserByID };
+const createUser = async userInfo => {
+  const newUser = await usersRepo.createUser(userInfo);
+  return { code: 200, body: newUser };
+};
+
+const deleteUser = async id => {
+  const remainUsers = await usersRepo.deleteUser(id);
+  return { code: 200, body: remainUsers };
+};
+
+module.exports = { getAll, getUserByID, createUser, deleteUser };
