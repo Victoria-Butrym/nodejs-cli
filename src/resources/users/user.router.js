@@ -9,4 +9,11 @@ router.route('/').get(async (req, res) => {
   return res.status(users.code).json(users.body);
 });
 
+router.route('/:id').get(async (req, res) => {
+  const id = req.params.id;
+
+  const user = await usersService.getUserByID(id);
+  return res.status(user.code).json(user.body);
+});
+
 module.exports = router;

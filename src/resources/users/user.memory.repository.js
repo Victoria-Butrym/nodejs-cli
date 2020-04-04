@@ -11,4 +11,8 @@ const getAll = async () => {
   // console.log(users);
 };
 
-module.exports = { getAll };
+const getUserByID = async id => {
+  return users.find(user => user.id === id);
+};
+
+module.exports = { getAll, getUserByID };

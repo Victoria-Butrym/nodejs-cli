@@ -5,4 +5,9 @@ const getAll = async () => {
   return { code: 200, body: users };
 };
 
-module.exports = { getAll };
+const getUserByID = async id => {
+  const user = await usersRepo.getUserByID(id);
+  return { code: 200, body: user };
+};
+
+module.exports = { getAll, getUserByID };
