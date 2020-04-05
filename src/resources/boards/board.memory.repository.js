@@ -15,4 +15,10 @@ const deleteBoardByID = async id => {
   return BOARDS.filter(board => board.id !== id);
 };
 
-module.exports = { getAll, getBoardByID, deleteBoardByID };
+const createBoard = async boardInfo => {
+  const newBoard = new Board(boardInfo);
+  BOARDS.push(newBoard);
+  return newBoard;
+};
+
+module.exports = { getAll, getBoardByID, deleteBoardByID, createBoard };
