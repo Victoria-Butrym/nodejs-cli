@@ -20,4 +20,15 @@ const deleteUser = async id => {
   return { code: 200, body: remainUsers };
 };
 
-module.exports = { getAll, getUserByID, createUser, deleteUser };
+const updateUserInfo = async (id, userInfo) => {
+  const users = await usersRepo.updateUserInfo(id, userInfo);
+  return { code: 200, body: users };
+};
+
+module.exports = {
+  getAll,
+  getUserByID,
+  createUser,
+  deleteUser,
+  updateUserInfo
+};
