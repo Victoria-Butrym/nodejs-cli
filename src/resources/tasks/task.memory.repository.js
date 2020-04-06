@@ -15,11 +15,9 @@ const getTaskByID = async id => {
 };
 
 const updateTask = async (id, taskInfo) => {
-  const taskIndex = TASKS.find(el => el.id === id);
-
-  const updatedTask = Object.assign(TASKS[taskIndex], taskInfo);
-  TASKS[taskIndex] = updatedTask;
-  return updatedTask;
+  const task = TASKS.find(item => item.id === id);
+  Object.assign(task, taskInfo);
+  return task;
 };
 
 const createTask = async taskInfo => {
