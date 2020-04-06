@@ -19,4 +19,15 @@ const createBoard = async boardInfo => {
   return { code: 200, body: newBoard };
 };
 
-module.exports = { getAll, getBoardByID, deleteBoardByID, createBoard };
+const updateBoard = async (id, boardInfo) => {
+  const updatedBoard = await boardsRepo.updateBoard(id, boardInfo);
+  return { code: 200, body: updatedBoard };
+};
+
+module.exports = {
+  getAll,
+  getBoardByID,
+  deleteBoardByID,
+  createBoard,
+  updateBoard
+};

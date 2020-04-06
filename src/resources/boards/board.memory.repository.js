@@ -21,4 +21,19 @@ const createBoard = async boardInfo => {
   return newBoard;
 };
 
-module.exports = { getAll, getBoardByID, deleteBoardByID, createBoard };
+const updateBoard = async (id, boardInfo) => {
+  const { title, columns } = boardInfo;
+  const boardIndex = BOARDS.find(board => board.id === id);
+
+  const updatedBoard = new Board({ id, title, columns });
+  BOARDS[boardIndex] = updatedBoard;
+  return updatedBoard;
+};
+
+module.exports = {
+  getAll,
+  getBoardByID,
+  deleteBoardByID,
+  createBoard,
+  updateBoard
+};
