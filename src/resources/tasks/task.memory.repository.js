@@ -22,8 +22,10 @@ const updateTask = async (id, taskInfo) => {
   return updatedTask;
 };
 
-// const createTask = async () => {
-//   const newTask = new Task();
-// };
+const createTask = async taskInfo => {
+  const newTask = new Task(taskInfo);
+  TASKS.push(newTask);
+  return newTask;
+};
 
-module.exports = { getAll, getTaskByID, updateTask };
+module.exports = { getAll, getTaskByID, updateTask, createTask };

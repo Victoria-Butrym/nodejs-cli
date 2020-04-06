@@ -10,9 +10,14 @@ const getTaskByID = async id => {
   return { code: 200, body: task };
 };
 
-const updateTask = (id, taskInfo) => {
-  const updatedTask = tasksRepo.updateTask(id, taskInfo);
+const updateTask = async (id, taskInfo) => {
+  const updatedTask = await tasksRepo.updateTask(id, taskInfo);
   return { code: 200, body: updatedTask };
 };
 
-module.exports = { getAll, getTaskByID, updateTask };
+const createTask = async taskInfo => {
+  const newTask = await tasksRepo.createTask(taskInfo);
+  return { code: 200, body: newTask };
+};
+
+module.exports = { getAll, getTaskByID, updateTask, createTask };

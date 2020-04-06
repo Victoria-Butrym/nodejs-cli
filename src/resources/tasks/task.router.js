@@ -22,4 +22,10 @@ router.route('/:id').put(async (req, res) => {
   res.status(code).json(body);
 });
 
+router.route('/').post(async (req, res) => {
+  const taskInfo = req.body;
+  const { code, body } = await tasksService.createTask(taskInfo);
+  res.status(code).json(body);
+});
+
 module.exports = router;
