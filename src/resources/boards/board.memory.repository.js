@@ -7,8 +7,7 @@ const getAll = async () => {
 };
 
 const getBoardByID = async id => {
-  const board = BOARDS.find(el => el.id === id);
-  return { code: 200, body: board };
+  return BOARDS.find(item => item.id === id);
 };
 
 const deleteBoardByID = async id => {
@@ -22,12 +21,17 @@ const createBoard = async boardInfo => {
 };
 
 const updateBoard = async (id, boardInfo) => {
-  const { title, columns } = boardInfo;
-  const boardIndex = BOARDS.find(board => board.id === id);
+  const board = BOARDS.find(item => item.id === id);
 
-  const updatedBoard = new Board({ id, title, columns });
-  BOARDS[boardIndex] = updatedBoard;
-  return updatedBoard;
+  for (const column of board.columns) {
+    for (const detailColumn of boardInfo.columns) {
+      if (column.id === detailColumn.id) {
+        Object.assign(board, boardInfo);
+
+        return board;
+      }
+    }
+  }
 };
 
 module.exports = {

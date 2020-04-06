@@ -5,8 +5,9 @@ const getAll = async () => {
   return { code: 200, body: boards };
 };
 
-const getBoardByID = id => {
-  return boardsRepo.getBoardsByID(id);
+const getBoardByID = async id => {
+  const board = await boardsRepo.getBoardByID(id);
+  return { code: 200, body: board };
 };
 
 const deleteBoardByID = async id => {

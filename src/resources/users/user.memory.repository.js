@@ -6,10 +6,7 @@ const USERS = [
 ];
 
 const getAll = async () => {
-  // // TODO: mock implementation. should be replaced during task development
-  // return [];
   return USERS.map(user => User.toResponse(user));
-  // console.log(users);
 };
 
 const getUserByID = async id => {

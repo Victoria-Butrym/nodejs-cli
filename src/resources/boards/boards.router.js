@@ -6,14 +6,10 @@ router.route('/').get(async (req, res) => {
   return res.status(code).json(body);
 });
 
-// Takes too much time to execute
-
-// router.route('/:id').get(async (req, res) => {
-//   const id = req.params.id;
-
-//   const { code, body } = await boardsService.getBoardByID(id);
-//   return res.status(code).json(body);
-// });
+router.route('/:id').get(async (req, res) => {
+  const { code, body } = await boardsService.getBoardByID(req.params.id);
+  res.status(code).json(body);
+});
 
 router.route('/:id').delete(async (req, res) => {
   const id = req.params.id;
