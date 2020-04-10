@@ -10,14 +10,21 @@ const getTaskByID = async id => {
   return { code: 200, body: task };
 };
 
-const updateTask = async (id, taskInfo) => {
-  const updatedTask = await tasksRepo.updateTask(id, taskInfo);
+const updateTask = (id, taskInfo) => {
+  const updatedTask = tasksRepo.updateTask(id, taskInfo);
   return { code: 200, body: updatedTask };
 };
 
-const createTask = async taskInfo => {
-  const newTask = await tasksRepo.createTask(taskInfo);
+const createTask = async (id, taskInfo) => {
+  const newTask = await tasksRepo.createTask(id, taskInfo);
   return { code: 200, body: newTask };
 };
 
-module.exports = { getAll, getTaskByID, updateTask, createTask };
+// const deleteTask = async id => {
+//   const tasks = await tasksRepo.deleteTask(id);
+//   return { code: 200, body: tasks };
+// };
+
+const deleteTask = params => tasksRepo.deleteTask(params);
+
+module.exports = { getAll, getTaskByID, updateTask, createTask, deleteTask };

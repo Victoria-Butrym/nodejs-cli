@@ -11,6 +11,16 @@ router.route('/:id').get(async (req, res) => {
   res.status(code).json(body);
 });
 
+// router.route('/:id').delete(async (req, res) => {
+//   const id = req.params.id;
+
+//   const board = await boardsService.deleteBoardByID(id);
+//   if (board) {
+//     return res.json(board.body);
+//   }
+
+//   return res.status(404).end();
+// });
 router.route('/:id').delete(async (req, res) => {
   const id = req.params.id;
 

@@ -10,13 +10,21 @@ const getBoardByID = async id => {
   return BOARDS.find(item => item.id === id);
 };
 
+// const deleteBoardByID = async id => {
+//   const deleteBoard = BOARDS.filter(board => board.id !== id);
+//   if (deleteBoard) return deleteBoard;
+//   return false;
+// };
 const deleteBoardByID = async id => {
   return BOARDS.filter(board => board.id !== id);
 };
 
 const createBoard = async boardInfo => {
-  const newBoard = new Board(boardInfo);
+  const { title, columns } = boardInfo;
+  const newBoard = new Board({ title, columns });
+
   BOARDS.push(newBoard);
+
   return newBoard;
 };
 

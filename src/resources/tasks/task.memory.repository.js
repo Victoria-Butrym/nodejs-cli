@@ -26,4 +26,19 @@ const createTask = async taskInfo => {
   return newTask;
 };
 
-module.exports = { getAll, getTaskByID, updateTask, createTask };
+// const deleteTask = async id => {
+//   return TASKS.filter(task => task.id !== id);
+// };
+const deleteTask = async params => {
+  const index = TASKS.findIndex(item => item.id === params.id);
+
+  if (index !== -1) {
+    TASKS.splice(index, 1);
+
+    return true;
+  }
+
+  return false;
+};
+
+module.exports = { getAll, getTaskByID, updateTask, createTask, deleteTask };
