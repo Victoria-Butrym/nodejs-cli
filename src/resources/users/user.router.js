@@ -43,22 +43,11 @@ router.route('/').post(async (req, res, next) => {
   }
 });
 
-// router.route('/:id').delete(async (req, res, next) => {
-//   try {
-//     const id = req.params.id;
-
-//     if (!id || id === 'undefined') throw new ErrorHandler(NOT_FOUND);
-
-//     const { code, body } = await usersService.deleteUser(id);
-//     if (!body) throw new ErrorHandler(NOT_FOUND);
-//     return res.status(code).json(body);
-//   } catch (error) {
-//     return next(error);
-//   }
-// });
-
 router.route('/:id').put(async (req, res, next) => {
   try {
+    if (Object.keys(req.body).length === 0) {
+      throw new ErrorHandler(BAD_REQUEST);
+    }
     const id = req.params.id;
     const userInfo = req.body;
 

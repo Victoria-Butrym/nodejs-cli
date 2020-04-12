@@ -22,3 +22,375 @@
 {"status":500,"message":"user-not-found","level":"error"}
 {"statusCode":404,"message":"USER_NOT_FOUND","level":"error"}
 {"statusCode":404,"message":"USER_NOT_FOUND","level":"error"}
+{"statusCode":404,"message":"USER_NOT_FOUND","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"status":500,"message":"REJECTED PROMISE","level":"error"}
+{"status":500,"message":"OOOOOOOOOPS!!!!!!!","level":"error"}
+{"statusCode":404,"message":"USER_NOT_FOUND","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"level":"error","message":"undefined"}
+{"level":"error","message":"undefined"}
+{"statusCode":400,"message":"Bad Request","level":"error"}
+{"statusCode":400,"message":"Bad Request","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":401,"message":"Access token is missing or invalid","level":"error"}
+{"statusCode":401,"message":"Access token is missing or invalid","level":"error"}
+{"level":"error","message":"undefined"}
+{"level":"error","message":"undefined"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"level":"error","message":"undefined"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"level":"error","message":"undefined"}
+{"level":"error","message":"undefined"}
+{"level":"error","message":"undefined"}
+{"level":"error","message":"undefined"}
+{"level":"error","message":"undefined"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"level":"error","message":"undefined"}
+{"level":"error","message":"undefined"}
+{"level":"error","message":"undefined"}
+{"level":"error","message":"undefined"}
+{"level":"error","message":"undefined"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"level":"error","message":"undefined"}
+{"level":"error","message":"undefined"}
+{"level":"error","message":"undefined"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"level":"error","message":"undefined"}
+{"level":"error","message":"undefined"}
+{"level":"error","message":"undefined"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"level":"error","message":"undefined"}
+{"level":"error","message":"undefined"}
+{"level":"error","message":"undefined"}
+{"level":"error","message":"undefined"}
+{"level":"error","message":"undefined"}
+{"level":"error","message":"undefined"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"level":"error","message":"undefined"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"level":"error","message":"undefined"}
+{"level":"error","message":"undefined"}
+{"level":"error","message":"undefined"}
+{"level":"error","message":"undefined"}
+{"level":"error","message":"undefined"}
+{"level":"error","message":"undefined"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"level":"error","message":"undefined"}
+{"level":"error","message":"undefined"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"status":500,"message":"Cannot convert undefined or null to object","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"status":500,"message":"tasks.push is not a function","level":"error"}
+{"status":500,"message":"tasks.push is not a function","level":"error"}
+{"status":500,"message":"tasks.push is not a function","level":"error"}
+{"status":500,"message":"tasks.push is not a function","level":"error"}
+{"status":500,"message":"tasks.push is not a function","level":"error"}
+{"status":500,"message":"tasks.push is not a function","level":"error"}
+{"status":500,"message":"tasks.push is not a function","level":"error"}
+{"status":500,"message":"tasks.push is not a function","level":"error"}
+{"status":500,"message":"tasks.push is not a function","level":"error"}
+{"status":500,"message":"tasks.push is not a function","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"status":500,"message":"Cannot convert undefined or null to object","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"status":500,"message":"Cannot convert undefined or null to object","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Board not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}
+{"statusCode":404,"message":"Task not found","level":"error"}

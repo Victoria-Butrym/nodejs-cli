@@ -15,16 +15,18 @@ const updateTask = (id, taskInfo) => {
   return { code: 200, body: updatedTask };
 };
 
-const createTask = async (id, taskInfo) => {
-  const newTask = await tasksRepo.createTask(id, taskInfo);
+const createTask = async (params, taskInfo) => {
+  console.log('PARAMS=========', params);
+  const newTask = await tasksRepo.createTask(params, taskInfo);
   return { code: 200, body: newTask };
 };
 
-// const deleteTask = async id => {
-//   const tasks = await tasksRepo.deleteTask(id);
-//   return { code: 200, body: tasks };
-// };
-
 const deleteTask = params => tasksRepo.deleteTask(params);
 
-module.exports = { getAll, getTaskByID, updateTask, createTask, deleteTask };
+module.exports = {
+  getAll,
+  getTaskByID,
+  updateTask,
+  createTask,
+  deleteTask
+};

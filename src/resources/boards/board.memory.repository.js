@@ -10,13 +10,14 @@ const getBoardByID = async id => {
   return BOARDS.find(item => item.id === id);
 };
 
-// const deleteBoardByID = async id => {
-//   const deleteBoard = BOARDS.filter(board => board.id !== id);
-//   if (deleteBoard) return deleteBoard;
-//   return false;
-// };
 const deleteBoardByID = async id => {
-  return BOARDS.filter(board => board.id !== id);
+  // console.log('----------@@@@--', id);
+  const index = BOARDS.findIndex(board => board.id === id);
+  if (index !== -1) {
+    BOARDS.splice(index, 1);
+    return true;
+  }
+  return false;
 };
 
 const createBoard = async boardInfo => {

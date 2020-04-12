@@ -29,7 +29,7 @@ morgan.token('query', req => {
 const infoLog = path.join(__dirname, './logs/info.log');
 
 app.use(
-  morgan('{url: :url, query:query, body:body}', {
+  morgan('{url: :url, query: :query, body: :body}', {
     stream: createWriteStream(infoLog)
   })
 );

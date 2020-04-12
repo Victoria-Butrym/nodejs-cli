@@ -1,11 +1,6 @@
 const Task = require('./task.model');
 
-const TASKS = [new Task()];
-
-// const getAll = async boardId => {
-//   const tasks = TASKS.filter(task => task.id === boardId);
-//   return tasks;
-// };
+let TASKS = [new Task()];
 
 const getAll = async () => TASKS;
 
@@ -20,15 +15,41 @@ const updateTask = async (id, taskInfo) => {
   return task;
 };
 
-const createTask = async taskInfo => {
-  const newTask = new Task(taskInfo);
+const createTask = async (params, taskInfo) => {
+  const { title, order, description, userId, columnId } = taskInfo;
+  const boardId = taskInfo.boardId;
+  console.log('CREATE============', boardId);
+  const newTask = new Task({
+    title,
+    order,
+    description,
+    userId,
+    boardId,
+    columnId
+  });
   TASKS.push(newTask);
   return newTask;
 };
 
-// const deleteTask = async id => {
-//   return TASKS.filter(task => task.id !== id);
-// };
+const deleteBoardTasks = id => {
+  console.log('TASK BOARD ID', id);
+  TASKS = [...TASKS].filter(task => {
+    task.boardId = id;
+  });
+  return TASKS;
+};
+
+const deleteAllUserTasks = ({ userId }) => {
+  // console.log('----------------', userId);
+  TASKS = [...TASKS].map(task => {
+    if (task.userId === userId) {
+      task.userId = null;
+    }
+    return task;
+  });
+  return TASKS;
+}; // right
+
 const deleteTask = async params => {
   const index = TASKS.findIndex(item => item.id === params.id);
 
@@ -41,4 +62,12 @@ const deleteTask = async params => {
   return false;
 };
 
-module.exports = { getAll, getTaskByID, updateTask, createTask, deleteTask };
+module.exports = {
+  getAll,
+  getTaskByID,
+  updateTask,
+  createTask,
+  deleteTask,
+  deleteAllUserTasks,
+  deleteBoardTasks
+};

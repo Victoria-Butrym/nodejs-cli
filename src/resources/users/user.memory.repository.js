@@ -1,4 +1,5 @@
 const User = require('./user.model.js');
+const taskRepo = require('../tasks/task.memory.repository');
 
 const USERS = [
   new User({ name: 'name1', login: 'login1', password: 'password1' }),
@@ -20,6 +21,7 @@ const createUser = async userInfo => {
 };
 
 const deleteUser = async id => {
+  taskRepo.deleteAllUserTasks({ userId: id });
   return USERS.filter(user => user.id !== id);
 };
 
