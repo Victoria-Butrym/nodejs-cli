@@ -20,9 +20,9 @@ router.route('/:id').get(async (req, res, next) => {
     const id = req.params.id;
 
     const { code, body } = await usersService.getUserByID(id);
-    // if (!body) {
-    //   throw new ErrorHandler(NOT_FOUND, 'USER_NOT_FOUND');
-    // }
+    if (!body) {
+      throw new ErrorHandler(NOT_FOUND, 'USER_NOT_FOUND');
+    }
     return res.status(code).json(body);
   } catch (error) {
     return next(error);
@@ -31,6 +31,9 @@ router.route('/:id').get(async (req, res, next) => {
 
 router.route('/').post(async (req, res, next) => {
   try {
+    if (Object.keys(req.body).length === 0) {
+      throw new ErrorHandler(BAD_REQUEST);
+    }
     const userInfo = req.body;
 
     const { code, body } = await usersService.createUser(userInfo);
@@ -54,7 +57,9 @@ router.route('/:id').put(async (req, res, next) => {
     if (!userInfo) throw new ErrorHandler(BAD_REQUEST);
 
     const { code, body } = await usersService.updateUserInfo(id, userInfo);
-    if (!body) throw new ErrorHandler(NOT_FOUND, 'User not found');
+    if (!body) {
+      throw new ErrorHandler(NOT_FOUND, 'User not found');
+    }
     return res.status(code).json(body);
   } catch (error) {
     return next(error);
@@ -66,6 +71,9 @@ router.route('/:id').delete(async (req, res, next) => {
     const id = req.params.id;
 
     const { code, body } = await usersService.deleteUser(id);
+    if (!body) {
+      throw new ErrorHandler(NOT_FOUND, 'User not found');
+    }
     return res.status(code).json(body);
   } catch (error) {
     return next(error);

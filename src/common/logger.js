@@ -1,7 +1,6 @@
 const { createLogger, format, transports } = require('winston');
 const path = require('path');
 
-// const infoLog = path.join(__dirname, '../logs/info.log');
 const errorLog = path.join(__dirname, '../logs/error.log');
 
 const { INTERNAL_SERVER_ERROR, getStatusText } = require('http-status-codes');
@@ -14,11 +13,6 @@ const logger = createLogger({
       level: 'error',
       format: format.combine(format.uncolorize(), format.json())
     })
-    // new transports.File({
-    //   filename: infoLog,
-    //   level: 'info',
-    //   format: format.combine(format.uncolorize(), format.prettyPrint())
-    // })
   ]
 });
 

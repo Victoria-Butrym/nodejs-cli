@@ -15,9 +15,9 @@ const updateTask = (id, taskInfo) => {
   return { code: 200, body: updatedTask };
 };
 
-const createTask = async (params, taskInfo) => {
-  console.log('PARAMS=========', params);
-  const newTask = await tasksRepo.createTask(params, taskInfo);
+const createTask = async taskInfo => {
+  // console.log('PARAMS=========', params);
+  const newTask = await tasksRepo.createTask(taskInfo);
   return { code: 200, body: newTask };
 };
 

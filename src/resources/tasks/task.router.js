@@ -1,10 +1,9 @@
 const router = require('express').Router();
 const tasksService = require('./task.service');
 const { ErrorHandler } = require('../../common/logger');
-const { BAD_REQUEST, NOT_FOUND } = require('http-status-codes');
+const { BAD_REQUEST, NOT_FOUND, OK } = require('http-status-codes');
 
 router.route('/').get(async (req, res, next) => {
-  // const boardId = req.params;
   try {
     const tasks = await tasksService.getAll();
     if (!tasks) {
@@ -54,10 +53,10 @@ router.route('/').post(async (req, res, next) => {
   try {
     const taskInfo = req.body;
     if (Object.keys(taskInfo).length === 0) {
-      throw new ErrorHandler(400, 'Bad request');
+      throw new ErrorHandler(BAD_REQUEST);
     }
 
-    const { code, body } = await tasksService.createTask(req.params, taskInfo);
+    const { code, body } = await tasksService.createTask(taskInfo);
     if (!body) {
       throw new ErrorHandler(BAD_REQUEST);
     }
@@ -68,13 +67,15 @@ router.route('/').post(async (req, res, next) => {
   }
 });
 
-router.route('/:id').delete(async (req, res) => {
-  const delTask = await tasksService.deleteTask(req.params);
-
-  if (delTask) {
-    res.status(204).end();
-  } else {
-    res.status(404).end();
+router.route('/:id').delete(async (req, res, next) => {
+  try {
+    const deletedTask = await tasksService.deleteTask(req.params);
+    if (deletedTask === false) {
+      throw new ErrorHandler(BAD_REQUEST);
+    }
+    res.status(OK).json(deletedTask);
+  } catch (error) {
+    return next(error);
   }
 });
 

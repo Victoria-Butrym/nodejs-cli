@@ -44,6 +44,9 @@ router.route('/:id').delete(async (req, res, next) => {
 
 router.route('/').post(async (req, res, next) => {
   try {
+    if (Object.keys(req.body).length === 0) {
+      throw new ErrorHandler(BAD_REQUEST);
+    }
     const boardInfo = req.body;
 
     const { code, body } = await boardsService.createBoard(boardInfo);

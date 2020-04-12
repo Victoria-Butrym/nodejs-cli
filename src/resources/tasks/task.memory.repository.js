@@ -1,6 +1,15 @@
 const Task = require('./task.model');
 
-let TASKS = [new Task()];
+let TASKS = [
+  new Task({
+    title: 'new task',
+    order: 0,
+    description: 'description',
+    userId: 1,
+    boardId: 1,
+    columnId: 1
+  })
+];
 
 const getAll = async () => TASKS;
 
@@ -15,10 +24,9 @@ const updateTask = async (id, taskInfo) => {
   return task;
 };
 
-const createTask = async (params, taskInfo) => {
+const createTask = async taskInfo => {
   const { title, order, description, userId, columnId } = taskInfo;
   const boardId = taskInfo.boardId;
-  console.log('CREATE============', boardId);
   const newTask = new Task({
     title,
     order,
@@ -32,7 +40,7 @@ const createTask = async (params, taskInfo) => {
 };
 
 const deleteBoardTasks = id => {
-  console.log('TASK BOARD ID', id);
+  // console.log('TASK BOARD ID', id);
   TASKS = [...TASKS].filter(task => {
     task.boardId = id;
   });

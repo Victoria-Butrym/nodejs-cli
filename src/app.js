@@ -1,4 +1,3 @@
-/* eslint-disable callback-return */
 const express = require('express');
 const swaggerUI = require('swagger-ui-express');
 const path = require('path');
@@ -17,7 +16,6 @@ const swaggerDocument = YAML.load(path.join(__dirname, '../doc/api.yaml'));
 
 app.use(express.json());
 
-// app.use(requestHandler);
 morgan.token('body', req => {
   return JSON.stringify(req.body);
 });
@@ -29,7 +27,7 @@ morgan.token('query', req => {
 const infoLog = path.join(__dirname, './logs/info.log');
 
 app.use(
-  morgan('{url: :url, query: :query, body: :body}', {
+  morgan(JSON.stringify('{url: :url, query: :query, body: :body}'), {
     stream: createWriteStream(infoLog)
   })
 );
@@ -53,14 +51,6 @@ app.use((err, req, res, next) => {
   next();
 });
 
-// setTimeout(() => {
-//   throw new Error('OOOOOOOOOPS!!!!!!!');
-// }, 1500);
-
-// setTimeout(() => {
-//   Promise.reject(new Error('REJECTED PROMISE'));
-// }, 1000);
-
 process.on('uncaughtException', error => {
   logger.error({ status: INTERNAL_SERVER_ERROR, message: error.message });
   exit(1);
@@ -71,5 +61,8 @@ process.on('unhandledRejection', reason => {
     message: reason.message
   });
 });
+
+// throw new Error('CROSSCHECK ERROR');
+// Promise.reject(new Error('CROSSCHECK PROMISE ERROR'));
 
 module.exports = app;
