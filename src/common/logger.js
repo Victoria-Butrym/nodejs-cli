@@ -1,9 +1,8 @@
 const { createLogger, format, transports } = require('winston');
 const path = require('path');
+const { INTERNAL_SERVER_ERROR, getStatusText } = require('http-status-codes');
 
 const errorLog = path.join(__dirname, '../logs/error.log');
-
-const { INTERNAL_SERVER_ERROR, getStatusText } = require('http-status-codes');
 
 const logger = createLogger({
   transports: [
@@ -31,16 +30,21 @@ class ErrorHandler extends Error {
 }
 
 function errorHandler(err, res) {
-  logger.error(err);
+  console.log('ERROR:  ', err);
   const { statusCode, message } = err;
+
+  const errorLogg = {
+    status: 'error',
+    statusCode,
+    message
+  };
+  logger.error(errorLogg);
+
   if (statusCode) {
-    res.status(statusCode).json({
-      status: 'error',
-      statusCode,
-      message
-    });
+    res.status(statusCode).json(errorLogg);
     return;
   }
+
   res.status(INTERNAL_SERVER_ERROR).send(getStatusText(INTERNAL_SERVER_ERROR));
 }
 

@@ -7,7 +7,7 @@ router.route('/').get(async (req, res, next) => {
   try {
     const { code, body } = await boardsService.getAll();
     if (!body) {
-      throw new ErrorHandler(BAD_REQUEST);
+      throw new ErrorHandler(NOT_FOUND);
     }
     return res.status(code).json(body);
   } catch (error) {
@@ -23,20 +23,6 @@ router.route('/:id').get(async (req, res, next) => {
       throw new ErrorHandler(NOT_FOUND, 'Board not found');
     }
     res.status(code).json(body);
-  } catch (error) {
-    return next(error);
-  }
-});
-
-router.route('/:id').delete(async (req, res, next) => {
-  try {
-    const id = req.params.id;
-
-    const { code, body } = await boardsService.deleteBoardByID(id);
-    if (!body) {
-      throw new ErrorHandler(NOT_FOUND, 'Board not found');
-    }
-    return res.status(code).json(body);
   } catch (error) {
     return next(error);
   }
@@ -70,6 +56,19 @@ router.route('/:id').put(async (req, res, next) => {
 
     const { code, body } = await boardsService.updateBoard(id, boardInfo);
 
+    if (!body) {
+      throw new ErrorHandler(NOT_FOUND, 'Board not found');
+    }
+    return res.status(code).json(body);
+  } catch (error) {
+    return next(error);
+  }
+});
+router.route('/:id').delete(async (req, res, next) => {
+  try {
+    const id = req.params.id;
+
+    const { code, body } = await boardsService.deleteBoardByID(id);
     if (!body) {
       throw new ErrorHandler(NOT_FOUND, 'Board not found');
     }

@@ -40,7 +40,6 @@ const createTask = async taskInfo => {
 };
 
 const deleteBoardTasks = id => {
-  // console.log('TASK BOARD ID', id);
   TASKS = [...TASKS].filter(task => {
     task.boardId = id;
   });
@@ -48,7 +47,6 @@ const deleteBoardTasks = id => {
 };
 
 const deleteAllUserTasks = ({ userId }) => {
-  // console.log('----------------', userId);
   TASKS = [...TASKS].map(task => {
     if (task.userId === userId) {
       task.userId = null;
@@ -56,7 +54,7 @@ const deleteAllUserTasks = ({ userId }) => {
     return task;
   });
   return TASKS;
-}; // right
+};
 
 const deleteTask = async params => {
   const index = TASKS.findIndex(item => item.id === params.id);

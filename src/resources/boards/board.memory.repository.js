@@ -1,8 +1,9 @@
 const { Board } = require('./board.model');
 
-const BOARDS = [new Board()]; // check the filling
+const BOARDS = [new Board()];
 
 const getAll = async () => {
+  // Promise.reject(new Error('promise reject'));
   return BOARDS;
 };
 
@@ -11,7 +12,6 @@ const getBoardByID = async id => {
 };
 
 const deleteBoardByID = async id => {
-  // console.log('----------@@@@--', id);
   const index = BOARDS.findIndex(board => board.id === id);
   if (index !== -1) {
     BOARDS.splice(index, 1);
