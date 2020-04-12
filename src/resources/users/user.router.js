@@ -20,9 +20,9 @@ router.route('/:id').get(async (req, res, next) => {
     const id = req.params.id;
 
     const { code, body } = await usersService.getUserByID(id);
-    if (!body) {
-      throw new ErrorHandler(NOT_FOUND, 'USER_NOT_FOUND');
-    }
+    // if (!body) {
+    //   throw new ErrorHandler(NOT_FOUND, 'USER_NOT_FOUND');
+    // }
     return res.status(code).json(body);
   } catch (error) {
     return next(error);
