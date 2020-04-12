@@ -30,7 +30,6 @@ class ErrorHandler extends Error {
 }
 
 function errorHandler(err, res) {
-  console.log('ERROR:  ', err);
   const { statusCode, message } = err;
 
   const errorLogg = {
