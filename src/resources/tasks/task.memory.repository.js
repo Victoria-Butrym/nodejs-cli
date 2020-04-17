@@ -46,14 +46,22 @@ const deleteBoardTasks = id => {
   return TASKS;
 };
 
-const deleteAllUserTasks = ({ userId }) => {
-  TASKS = [...TASKS].map(task => {
-    if (task.userId === userId) {
-      task.userId = null;
-    }
+// const deleteAllUserTasks = ({ userId }) => {
+//   TASKS = [...TASKS].map(task => {
+//     if (task.userId === userId) {
+//       task.userId = null;
+//     }
+//     return task;
+//   });
+//   return TASKS;
+// };
+const unassignUser = async id => {
+  const userTasks = TASKS.filter(task => task.userId === id);
+
+  userTasks.map(task => {
+    task.userId = null;
     return task;
   });
-  return TASKS;
 };
 
 const deleteTask = async params => {
@@ -74,6 +82,6 @@ module.exports = {
   updateTask,
   createTask,
   deleteTask,
-  deleteAllUserTasks,
+  unassignUser,
   deleteBoardTasks
 };

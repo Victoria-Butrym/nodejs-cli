@@ -1,36 +1,39 @@
-const usersRepo = require('./user.memory.repository');
-const taskRepo = require('../tasks/task.memory.repository');
+const usersRepo = require('./user.db.repository');
 
-const getAll = async () => {
-  const users = await usersRepo.getAll();
-  return { code: 200, body: users };
+const getAll = () => usersRepo.getAll();
+
+const getUser = async id => {
+  const user = await usersRepo.getUser(id);
+  // return user;
+  if (user) {
+    return { code: 200, body: user };
+  }
+  return { code: 404, body: 'USER_NOT_FOUND' };
 };
 
-const getUserByID = async id => {
-  const user = await usersRepo.getUserByID(id);
-  return { code: 200, body: user };
+const createUser = async userData => {
+  const newUser = await usersRepo.createUser(userData);
+  // console.log(newUser);
+  if (newUser) {
+    return { code: 200, body: newUser };
+  }
+  return { code: 404, body: 'USER_NOT_FOUND' };
 };
 
-const createUser = async userInfo => {
-  const newUser = await usersRepo.createUser(userInfo);
-  return { code: 200, body: newUser };
+const updateUser = async (id, userData) => {
+  const newUser = await usersRepo.updateUser(id, userData);
+
+  if (newUser) {
+    return { code: 200, body: newUser };
+  }
+  return { code: 404, body: 'USER_NOT_FOUND' };
 };
 
 const deleteUser = async id => {
-  await taskRepo.deleteAllUserTasks({ userId: id });
-  const remainUsers = await usersRepo.deleteUser(id);
-  return { code: 200, body: remainUsers };
+  const users = await usersRepo.deleteUser(id);
+  if (users) {
+    return { code: 200, body: users };
+  }
+  return { code: 404, body: 'USER_NOT_FOUND' };
 };
-
-const updateUserInfo = async (id, userInfo) => {
-  const users = await usersRepo.updateUserInfo(id, userInfo);
-  return { code: 200, body: users };
-};
-
-module.exports = {
-  getAll,
-  getUserByID,
-  createUser,
-  deleteUser,
-  updateUserInfo
-};
+module.exports = { getAll, getUser, createUser, updateUser, deleteUser };

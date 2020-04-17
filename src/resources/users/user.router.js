@@ -1,83 +1,55 @@
 const router = require('express').Router();
+const User = require('./user.model');
 const usersService = require('./user.service');
 const { ErrorHandler } = require('../../common/logger');
-const { BAD_REQUEST, NOT_FOUND } = require('http-status-codes');
+const { BAD_REQUEST } = require('http-status-codes');
 
-router.route('/').get(async (req, res, next) => {
-  try {
-    const { code, body } = await usersService.getAll();
-    if (!body.length) {
-      throw new ErrorHandler(BAD_REQUEST);
-    }
-    return res.status(code).json(body);
-  } catch (error) {
-    return next(error);
-  }
+router.route('/').get(async (req, res) => {
+  const users = await usersService.getAll();
+  res.json(users.map(User.toResponse));
 });
 
-router.route('/:id').get(async (req, res, next) => {
+router.route('/:id').get(async (req, res) => {
+  const { id } = req.params;
   try {
-    const id = req.params.id;
-
-    const { code, body } = await usersService.getUserByID(id);
-    if (!body) {
-      throw new ErrorHandler(NOT_FOUND, 'USER_NOT_FOUND');
-    }
-    return res.status(code).json(body);
+    const responesData = await usersService.getUser(id);
+    return res
+      .status(responesData.code)
+      .json(User.toResponse(responesData.body));
   } catch (error) {
-    return next(error);
+    return res.status(520).json(error.message);
   }
 });
 
 router.route('/').post(async (req, res, next) => {
   try {
-    if (Object.keys(req.body).length === 0) {
-      throw new ErrorHandler(BAD_REQUEST);
-    }
-    const userInfo = req.body;
+    const userData = req.body;
+    // console.log('USERDATA', userData);
 
-    const { code, body } = await usersService.createUser(userInfo);
-    if (!body) {
+    const newUser = await usersService.createUser(userData);
+    if (!newUser) {
       throw new ErrorHandler(BAD_REQUEST);
     }
-    return res.status(code).json(body);
+    // console.log('ROUTER', newUser);
+    return res.status(newUser.code).json(User.toResponse(newUser.body));
   } catch (error) {
     return next(error);
   }
 });
 
-router.route('/:id').put(async (req, res, next) => {
-  try {
-    if (Object.keys(req.body).length === 0) {
-      throw new ErrorHandler(BAD_REQUEST);
-    }
-    const id = req.params.id;
-    const userInfo = req.body;
+router.route('/:id').put(async (req, res) => {
+  const { id } = req.params;
+  const userData = req.body;
 
-    if (!userInfo) throw new ErrorHandler(BAD_REQUEST);
-
-    const { code, body } = await usersService.updateUserInfo(id, userInfo);
-    if (!body) {
-      throw new ErrorHandler(NOT_FOUND, 'User not found');
-    }
-    return res.status(code).json(body);
-  } catch (error) {
-    return next(error);
-  }
+  const { code, body } = await usersService.updateUser(id, userData);
+  return res.status(code).json(body);
 });
 
-router.route('/:id').delete(async (req, res, next) => {
-  try {
-    const id = req.params.id;
+router.route('/:id').delete(async (req, res) => {
+  const { id } = req.params;
 
-    const { code, body } = await usersService.deleteUser(id);
-    if (!body) {
-      throw new ErrorHandler(NOT_FOUND, 'User not found');
-    }
-    return res.status(code).json(body);
-  } catch (error) {
-    return next(error);
-  }
+  const { code, body } = await usersService.deleteUser(id);
+  return res.status(code).json(body);
 });
 
 module.exports = router;

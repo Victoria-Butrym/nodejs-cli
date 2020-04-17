@@ -1,3 +1,70 @@
 {"status":"error","statusCode":400,"message":"Bad Request","level":"error"}
 {"status":500,"message":"callback is not a function","level":"error"}
 {"status":500,"message":"callback is not a function","level":"error"}
+{"message":"[object Object]","level":"error"}
+{"message":"[object Object]","level":"error"}
+{"message":"[object Object]","level":"error"}
+{"message":"[object Object]","level":"error"}
+{"message":"[object Object]","level":"error"}
+{"message":"[object Object]","level":"error"}
+{"message":"[object Object]","level":"error"}
+{"status":500,"message":"usersRepo.updateUser is not a function","level":"error"}
+{"status":500,"message":"usersRepo.updateUser is not a function","level":"error"}
+{"status":500,"message":"taskRepo.unassignUser is not a function","level":"error"}
+{"status":500,"message":"taskRepo.unassignUser is not a function","level":"error"}
+{"status":500,"message":"taskRepo.unassignUser is not a function","level":"error"}
+{"status":500,"message":"taskRepo.unassignUser is not a function","level":"error"}
+{"message":"[object Object]","level":"error"}
+{"message":"[object Object]","level":"error"}
+{"message":"[object Object]","level":"error"}
+{"message":"[object Object]","level":"error"}
+{"message":"[object Object]","level":"error"}
+{"message":"[object Object]","level":"error"}
+{"message":"[object Object]","level":"error"}
+{"status":500,"message":"DB ERROR","level":"error"}
+{"status":500,"message":"DB ERROR","level":"error"}
+{"status":500,"message":"DB ERROR","level":"error"}
+{"status":500,"message":"DB ERROR","level":"error"}
+{"status":500,"message":"DB ERROR","level":"error"}
+{"status":500,"message":"user is not allowed to do action [dropDatabase] on [test.]","level":"error"}
+{"status":500,"message":"user is not allowed to do action [dropDatabase] on [test.]","level":"error"}
+{"status":500,"message":"user is not allowed to do action [dropDatabase] on [test.]","level":"error"}
+{"status":500,"message":"DB ERROR","level":"error"}
+{"status":500,"message":"DB ERROR","level":"error"}
+{"status":500,"message":"DB ERROR","level":"error"}
+{"status":500,"message":"DB ERROR","level":"error"}
+{"status":500,"message":"user is not allowed to do action [dropDatabase] on [test.]","level":"error"}
+{"status":500,"message":"user is not allowed to do action [dropDatabase] on [test.]","level":"error"}
+{"status":500,"message":"DB ERROR","level":"error"}
+{"status":500,"message":"DB ERROR","level":"error"}
+{"status":500,"message":"(intermediate value).exec is not a function","level":"error"}
+{"status":500,"message":"(intermediate value).exec is not a function","level":"error"}
+{"status":500,"message":"(intermediate value).exec is not a function","level":"error"}
+{"status":500,"message":"DB ERROR","level":"error"}
+{"status":500,"message":"DB ERROR","level":"error"}
+{"status":500,"message":"DB ERROR","level":"error"}
+{"status":500,"message":"DB ERROR","level":"error"}
+{"status":500,"message":"DB ERROR","level":"error"}
+{"status":500,"message":"DB ERROR","level":"error"}
+{"status":500,"message":"DB ERROR","level":"error"}
+{"status":500,"message":"DB ERROR","level":"error"}
+{"status":500,"message":"user is not allowed to do action [dropDatabase] on [test.]","level":"error"}
+{"status":500,"message":"Cast to ObjectId failed for value \"9e6021d4-3c04-457d-93f5-ea34cca01309\" at path \"_id\" for model \"User\"","level":"error"}
+{"status":500,"message":"Cast to ObjectId failed for value \"30c8e425-6000-4782-a473-3274f98d181e\" at path \"_id\" for model \"User\"","level":"error"}
+{"status":500,"message":"document must have an _id before saving","level":"error"}
+{"status":500,"message":"document must have an _id before saving","level":"error"}
+{"status":500,"message":"document must have an _id before saving","level":"error"}
+{"status":500,"message":"document must have an _id before saving","level":"error"}
+{"status":500,"message":"document must have an _id before saving","level":"error"}
+{"status":500,"message":"document must have an _id before saving","level":"error"}
+{"status":500,"message":"document must have an _id before saving","level":"error"}
+{"status":500,"message":"document must have an _id before saving","level":"error"}
+{"status":500,"message":"document must have an _id before saving","level":"error"}
+{"status":500,"message":"document must have an _id before saving","level":"error"}
+{"status":500,"message":"document must have an _id before saving","level":"error"}
+{"status":500,"message":"document must have an _id before saving","level":"error"}
+{"status":500,"message":"document must have an _id before saving","level":"error"}
+{"status":500,"message":"document must have an _id before saving","level":"error"}
+{"status":500,"message":"E11000 duplicate key error collection: test.users index: _id_ dup key: { _id: \"dfgb\" }","level":"error"}
+{"status":500,"message":"E11000 duplicate key error collection: test.users index: _id_ dup key: { _id: \"0356eb8e-ac65-4926-8b7a-d323b7585372\" }","level":"error"}
+{"status":"error","statusCode":400,"message":"Bad Request","level":"error"}
