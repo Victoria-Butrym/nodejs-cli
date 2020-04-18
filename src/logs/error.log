@@ -68,3 +68,26 @@
 {"status":500,"message":"E11000 duplicate key error collection: test.users index: _id_ dup key: { _id: \"dfgb\" }","level":"error"}
 {"status":500,"message":"E11000 duplicate key error collection: test.users index: _id_ dup key: { _id: \"0356eb8e-ac65-4926-8b7a-d323b7585372\" }","level":"error"}
 {"status":"error","statusCode":400,"message":"Bad Request","level":"error"}
+{"status":500,"message":"Cannot convert undefined or null to object","level":"error"}
+{"status":500,"message":"Cannot convert undefined or null to object","level":"error"}
+{"status":500,"message":"Cannot convert undefined or null to object","level":"error"}
+{"status":500,"message":"Cannot convert undefined or null to object","level":"error"}
+{"status":500,"message":"Cannot convert undefined or null to object","level":"error"}
+{"status":500,"message":"NULL OR UNDEFINED","level":"error"}
+{"status":500,"message":"NULL OR UNDEFINED","level":"error"}
+{"status":500,"message":"Cannot convert undefined or null to object","level":"error"}
+{"status":500,"message":"Cannot convert undefined or null to object","level":"error"}
+{"status":500,"message":"Cannot convert undefined or null to object","level":"error"}
+{"status":500,"message":"Cannot convert undefined or null to object","level":"error"}
+{"status":500,"message":"Cannot convert undefined or null to object","level":"error"}
+{"status":500,"message":"Cannot convert undefined or null to object","level":"error"}
+{"status":500,"message":"Cannot convert undefined or null to object","level":"error"}
+{"status":500,"message":"Cannot convert undefined or null to object","level":"error"}
+{"status":500,"message":"Cannot convert undefined or null to object","level":"error"}
+{"status":500,"message":"Cannot convert undefined or null to object","level":"error"}
+{"status":"error","message":"Cannot destructure property `title` of 'undefined' or 'null'.","level":"error"}
+{"status":"error","message":"Cannot destructure property `title` of 'undefined' or 'null'.","level":"error"}
+{"status":"error","message":"Cannot destructure property `title` of 'undefined' or 'null'.","level":"error"}
+{"status":500,"message":"Cannot convert undefined or null to object","level":"error"}
+{"status":500,"message":"body.map is not a function","level":"error"}
+{"status":500,"message":"body.map is not a function","level":"error"}

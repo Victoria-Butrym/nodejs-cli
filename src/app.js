@@ -4,7 +4,7 @@ const path = require('path');
 const YAML = require('yamljs');
 const userRouter = require('./resources/users/user.router');
 const boardsRouter = require('./resources/boards/boards.router');
-const tasksRouter = require('./resources/tasks/task.router');
+// const tasksRouter = require('./resources/tasks/task.router');
 const { logger, errorHandler } = require('./common/logger');
 const { INTERNAL_SERVER_ERROR } = require('http-status-codes');
 const morgan = require('morgan');
@@ -44,7 +44,7 @@ app.use('/', (req, res, next) => {
 
 app.use('/users', userRouter);
 app.use('/boards', boardsRouter);
-app.use('/boards/:boardId/tasks', tasksRouter);
+// app.use('/boards/:boardId/tasks', tasksRouter);
 
 app.use((err, req, res, next) => {
   errorHandler(err, res);

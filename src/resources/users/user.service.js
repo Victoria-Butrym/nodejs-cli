@@ -31,6 +31,7 @@ const updateUser = async (id, userData) => {
 
 const deleteUser = async id => {
   const users = await usersRepo.deleteUser(id);
+  console.log('SERVICE====', users);
   if (users) {
     return { code: 200, body: users };
   }

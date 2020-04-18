@@ -1,4 +1,4 @@
-const { Board } = require('./board.model');
+const Board = require('./board.model');
 
 const BOARDS = [new Board()];
 
