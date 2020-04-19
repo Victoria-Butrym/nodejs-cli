@@ -18,18 +18,18 @@ const updateBoard = async ({ boardId, boardData }) =>
   await boardRepo.updateBoard({ boardId, boardData });
 
 const deleteBoard = async boardId => {
-  // tasksService.deleteBoardTasks(boardId);
+  tasksService.deleteBoardTasks(boardId);
   const board = await boardRepo.deleteBoard(boardId);
   // console.log(board);
-  if (board) {
-    const tasksRelated = await tasksService.deleteBoardTasks(boardId);
+  // if (board) {
+  //   const tasksRelated = await tasksService.deleteBoardTasks(boardId);
 
-    if (tasksRelated) {
-      await Promise.all(
-        tasksRelated.map(task => tasksService.deleteTask({ id: task.id }))
-      );
-    }
-  }
+  //   if (tasksRelated) {
+  //     await Promise.all(
+  //       tasksRelated.map(task => tasksService.deleteTask({ id: task.id }))
+  //     );
+  //   }
+  // }
   return board;
   // return await boardRepo.deleteBoard(boardId);
 };

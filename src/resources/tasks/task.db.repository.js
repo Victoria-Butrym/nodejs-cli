@@ -41,7 +41,13 @@ const deleteTask = async ({ boardId, taskId }) => {
 };
 
 const deleteBoardTasks = async boardId => {
-  const boardTasks = await Task.find({ boardId });
+  const boardTasks = await Task.find({ boardId }).exec();
+  if (boardTasks.length !== 0) {
+    boardTasks.forEach(task => {
+      // console.log('TASK:==', task);
+      deleteTask({ boardId: task.boardId, taskId: task.id });
+    });
+  }
   // if (boardTasks.length === 0) return false;
   // boardTasks.forEach(task => Task.deleteOne({ _id: task.id }).deletedCount);
   // // console.log('BOARDS TASKS:====', boardTasks);
@@ -54,23 +60,17 @@ const unassignUser = async id => {
   const userTasks = await Task.find({ userId: id }).exec();
   console.log(id);
   // console.log('USER TASKS==', userTasks);
-  // if (userTasks.length !== 0) {
-  //   userTasks.map(task => {
-  //     task.userId = null;
-  //     return task;
-  //   });
-  //   console.log('DELETION===', userTasks);
-  //   return userTasks;
-  // }
+  if (userTasks.length !== 0) {
+    userTasks.forEach(task => {
+      // task.userId = null;
+      // return Task.updateOne({ _id: task.id }, { userId: null });
+      updateTask({ taskId: task.id }, { userId: null });
+      // return task;
+    });
+  }
   // return false;
-  userTasks.forEach(task => {
-    // task.userId = null;
-    // return Task.updateOne({ _id: task.id }, { userId: null });
-    updateTask({ taskId: task.id }, { userId: null });
-    // return task;
-  });
 
-  console.log('USER TASKS==', userTasks);
+  // console.log('USER TASKS==', userTasks);
   // return getAll();
   // console.log('DELETION===', userTasks);
   // return userTasks;
