@@ -1,4 +1,6 @@
 const usersRepo = require('./user.db.repository');
+// const taskRepo = require('../tasks/task.db.repository');
+const taskService = require('../tasks/task.service');
 
 const getAll = () => usersRepo.getAll();
 
@@ -30,9 +32,12 @@ const updateUser = async (id, userData) => {
 };
 
 const deleteUser = async id => {
+  // const deletion = await taskService.getAll();
+  // console.log('==USER SERVICE==', todelete);
   const users = await usersRepo.deleteUser(id);
-  console.log('SERVICE====', users);
+  // console.log('SERVICE====', users);
   if (users) {
+    await taskService.unassignUser(id);
     return { code: 200, body: users };
   }
   return { code: 404, body: 'USER_NOT_FOUND' };

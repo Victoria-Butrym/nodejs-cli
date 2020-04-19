@@ -91,3 +91,15 @@
 {"status":500,"message":"Cannot convert undefined or null to object","level":"error"}
 {"status":500,"message":"body.map is not a function","level":"error"}
 {"status":500,"message":"body.map is not a function","level":"error"}
+{"status":500,"message":"Cast to string failed for value \"{ userId: 'c477f63a-9873-47c7-ab35-f422954d8e4d' }\" at path \"_id\" for model \"Task\"","level":"error"}
+{"status":500,"message":"Cast to string failed for value \"{ userId: '2c05a61c-6728-42e8-a995-2a43b2862a16' }\" at path \"_id\" for model \"Task\"","level":"error"}
+{"status":500,"message":"Cast to string failed for value \"{ userId: '4b59aec8-cf35-4c05-bbce-263337cb18f3' }\" at path \"_id\" for model \"Task\"","level":"error"}
+{"status":500,"message":"Cast to string failed for value \"{ userId: 'f8519ebb-44b5-44c3-9a28-7612627368ca' }\" at path \"_id\" for model \"Task\"","level":"error"}
+{"status":500,"message":"Cast to string failed for value \"{ userId: '165650d6-8b63-4699-8634-e9d767a9dfc8' }\" at path \"_id\" for model \"Task\"","level":"error"}
+{"status":500,"message":"Cast to string failed for value \"{ userId: 'b069be2a-d459-4d44-a770-07fedfffd480' }\" at path \"_id\" for model \"Task\"","level":"error"}
+{"status":500,"message":"Cast to string failed for value \"{ userId: 'ce0e2168-2142-4f69-883b-bc8fde2712fb' }\" at path \"_id\" for model \"Task\"","level":"error"}
+{"status":500,"message":"Cast to string failed for value \"{ userId: '66b994c6-1f32-418f-8129-ed8ae3ef2e5a' }\" at path \"_id\" for model \"Task\"","level":"error"}
+{"status":500,"message":"Cast to string failed for value \"{ userId: '695b0b7b-bf2d-470d-81a8-c759cb9250ce' }\" at path \"_id\" for model \"Task\"","level":"error"}
+{"status":500,"message":"(intermediate value).exec is not a function","level":"error"}
+{"status":500,"message":"(intermediate value).exec is not a function","level":"error"}
+{"status":500,"message":"(intermediate value).exec is not a function","level":"error"}

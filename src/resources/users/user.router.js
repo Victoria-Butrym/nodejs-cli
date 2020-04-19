@@ -11,8 +11,12 @@ router.route('/').get(async (req, res) => {
 
 router.route('/:id').get(async (req, res) => {
   const { id } = req.params;
+  console.log('GET USER', id);
   try {
     const responesData = await usersService.getUser(id);
+    if (!responesData.body) {
+      return res.status(404).end();
+    }
     return res
       .status(responesData.code)
       .json(User.toResponse(responesData.body));
@@ -49,7 +53,7 @@ router.route('/:id').delete(async (req, res) => {
   const { id } = req.params;
 
   const { code, body } = await usersService.deleteUser(id);
-  console.log(body);
+  // console.log(body);
   return res.status(code).json(body);
 });
 

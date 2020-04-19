@@ -7,6 +7,9 @@ const Task = require('../tasks/task.model');
 router.route('/').get(async (req, res) => {
   try {
     const boards = await boardService.getAll();
+    if (boards.length === 0) {
+      return res.status(404).end();
+    }
     return res.status(200).json(boards.map(board => Board.toResponse(board)));
   } catch (error) {
     return res.status(500).json(error.message);
@@ -41,6 +44,9 @@ router.route('/:boardId').put(async (req, res) => {
   const boardData = req.body;
   try {
     const board = await boardService.updateBoard({ boardId, boardData });
+    if (!board) {
+      return res.status(404).end();
+    }
     return res.status(200).json(Board.toResponse(board));
   } catch (error) {
     return res.status(500).json(error.message);
@@ -49,10 +55,14 @@ router.route('/:boardId').put(async (req, res) => {
 
 router.route('/:boardId').delete(async (req, res) => {
   const { boardId } = req.params;
-  console.log(boardId);
+  // console.log(boardId);
   try {
     const boards = await boardService.deleteBoard(boardId);
-    console.log('Boards:=========', boards);
+    // await taskService.deleteBoardTasks(boardId);
+    // if (boards.deletedCount.length === 0) {
+    //   return res.status(405).end();
+    // }
+    // console.log('Boards:=========', boards);
     return res.status(200).json(boards);
   } catch (error) {
     return res.status(500).json(error.message);
@@ -73,6 +83,10 @@ router.route('/:boardId/tasks/').get(async (req, res) => {
   try {
     const { boardId } = req.params;
     const tasks = await taskService.getAll(boardId);
+    if (!tasks) {
+      return res.status(404).end();
+    }
+    // console.log('GET: TASK ROUTER===', tasks);
     return res.status(200).json(tasks.map(task => Task.toResponse(task)));
   } catch (error) {
     return res.status(500).json(error.message);
@@ -106,10 +120,10 @@ router.route('/:boardId/tasks/').post(async (req, res) => {
 });
 
 router.route('/:boardId/tasks/:taskId').put(async (req, res) => {
-  const { boardId, taskId } = req.params;
+  const { taskId } = req.params;
   const taskData = req.body;
   try {
-    const task = await taskService.updateTask({ boardId, taskId, taskData });
+    const task = await taskService.updateTask({ taskId }, taskData);
     return res.status(200).json(Task.toResponse(task));
   } catch (error) {
     return res.status(500).json(error.message);
@@ -124,7 +138,7 @@ router.route('/:boardId/tasks/:taskId').delete(async (req, res) => {
     // if (!tasks) {
     //     return res.status(404).json(tasks);
     // }
-    console.log('TASKS===', tasks);
+    // console.log('TASKS===', tasks);
     return res.status(200).json(tasks);
   } catch (error) {
     return res.status(500).json(error.message);

@@ -1,6 +1,6 @@
 const Task = require('./task.model');
 
-const TASKS = [new Task()];
+// const TASKS = [new Task()];
 
 const getAll = async boardId => {
   return Task.find({ boardId });
@@ -15,7 +15,6 @@ const getTask = async (boardId, taskId) => {
 };
 
 const createTask = async (boardId, taskData) => {
-  // console.log('TASK CREATE: =====\n', Task.create({ boardId }, taskData));
   const { title, order, description, columnId, userId } = taskData;
   return Task.create({ title, order, description, columnId, userId, boardId });
   // const { title, order, description, userId, columnId } = taskData;
@@ -24,14 +23,8 @@ const createTask = async (boardId, taskData) => {
   // return newTask;
 };
 
-const updateTask = async ({ boardId, taskId, taskData }) => {
-  return Task.updateOne({ _id: taskId, boardId }, taskData);
-  // const taskIdx = TASKS.findIndex(
-  //   task => task.boardId === boardId && task.id === taskId
-  // );
-
-  // TASKS[taskIdx] = { ...taskData };
-  // return TASKS[taskIdx];
+const updateTask = async ({ taskId }, taskData) => {
+  return Task.updateOne({ _id: taskId }, taskData);
 };
 
 const deleteTask = async ({ boardId, taskId }) => {
@@ -48,17 +41,45 @@ const deleteTask = async ({ boardId, taskId }) => {
 };
 
 const deleteBoardTasks = async boardId => {
-  const tasks = TASKS.filter(task => task.boardId === boardId);
-  return tasks;
+  const boardTasks = await Task.find({ boardId });
+  // if (boardTasks.length === 0) return false;
+  // boardTasks.forEach(task => Task.deleteOne({ _id: task.id }).deletedCount);
+  // // console.log('BOARDS TASKS:====', boardTasks);
+  return boardTasks;
+  // const tasks = TASKS.filter(task => task.boardId === boardId);
+  // return tasks;
 };
 
 const unassignUser = async id => {
-  const userTasks = TASKS.filter(task => task.userId === id);
-
-  userTasks.map(task => {
-    task.userId = null;
-    return task;
+  const userTasks = await Task.find({ userId: id }).exec();
+  console.log(id);
+  // console.log('USER TASKS==', userTasks);
+  // if (userTasks.length !== 0) {
+  //   userTasks.map(task => {
+  //     task.userId = null;
+  //     return task;
+  //   });
+  //   console.log('DELETION===', userTasks);
+  //   return userTasks;
+  // }
+  // return false;
+  userTasks.forEach(task => {
+    // task.userId = null;
+    // return Task.updateOne({ _id: task.id }, { userId: null });
+    updateTask({ taskId: task.id }, { userId: null });
+    // return task;
   });
+
+  console.log('USER TASKS==', userTasks);
+  // return getAll();
+  // console.log('DELETION===', userTasks);
+  // return userTasks;
+  // const userTasks = TASKS.filter(task => task.userId === id);
+
+  // userTasks.map(task => {
+  //   task.userId = null;
+  //   return task;
+  // });
 };
 
 module.exports = {

@@ -1,4 +1,6 @@
 const boardRepo = require('./board.db.repository');
+// const tasksRepo = require('../tasks/task.db.repository');
+const tasksService = require('../tasks/task.service');
 
 const getAll = async () => {
   return await boardRepo.getAll();
@@ -15,7 +17,22 @@ const createBoard = async boardData => await boardRepo.createBoard(boardData);
 const updateBoard = async ({ boardId, boardData }) =>
   await boardRepo.updateBoard({ boardId, boardData });
 
-const deleteBoard = async boardId => await boardRepo.deleteBoard(boardId);
+const deleteBoard = async boardId => {
+  // tasksService.deleteBoardTasks(boardId);
+  const board = await boardRepo.deleteBoard(boardId);
+  // console.log(board);
+  if (board) {
+    const tasksRelated = await tasksService.deleteBoardTasks(boardId);
+
+    if (tasksRelated) {
+      await Promise.all(
+        tasksRelated.map(task => tasksService.deleteTask({ id: task.id }))
+      );
+    }
+  }
+  return board;
+  // return await boardRepo.deleteBoard(boardId);
+};
 // const deleteBoard = async ({ boardId }) => {
 //     const boards = await boardRepo.deleteBoard({ boardId });
 //     return { code: 200, body: boards };
