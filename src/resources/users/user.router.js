@@ -11,7 +11,6 @@ router.route('/').get(async (req, res) => {
 
 router.route('/:id').get(async (req, res) => {
   const { id } = req.params;
-  console.log('GET USER', id);
   try {
     const responesData = await usersService.getUser(id);
     if (!responesData.body) {
@@ -28,13 +27,11 @@ router.route('/:id').get(async (req, res) => {
 router.route('/').post(async (req, res, next) => {
   try {
     const userData = req.body;
-    // console.log('USERDATA', userData);
 
     const newUser = await usersService.createUser(userData);
     if (!newUser) {
       throw new ErrorHandler(BAD_REQUEST);
     }
-    // console.log('ROUTER', newUser);
     return res.status(newUser.code).json(User.toResponse(newUser.body));
   } catch (error) {
     return next(error);
@@ -53,7 +50,6 @@ router.route('/:id').delete(async (req, res) => {
   const { id } = req.params;
 
   const { code, body } = await usersService.deleteUser(id);
-  // console.log(body);
   return res.status(code).json(body);
 });
 

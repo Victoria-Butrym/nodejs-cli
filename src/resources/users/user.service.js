@@ -1,12 +1,10 @@
 const usersRepo = require('./user.db.repository');
-// const taskRepo = require('../tasks/task.db.repository');
 const taskService = require('../tasks/task.service');
 
 const getAll = () => usersRepo.getAll();
 
 const getUser = async id => {
   const user = await usersRepo.getUser(id);
-  // return user;
   if (user) {
     return { code: 200, body: user };
   }
@@ -15,7 +13,6 @@ const getUser = async id => {
 
 const createUser = async userData => {
   const newUser = await usersRepo.createUser(userData);
-  // console.log(newUser);
   if (newUser) {
     return { code: 200, body: newUser };
   }
@@ -32,11 +29,8 @@ const updateUser = async (id, userData) => {
 };
 
 const deleteUser = async id => {
-  // const deletion = await taskService.getAll();
-  // console.log('==USER SERVICE==', todelete);
   await taskService.unassignUser(id);
   const users = await usersRepo.deleteUser(id);
-  // console.log('SERVICE====', users);
   if (users) {
     return { code: 200, body: users };
   }

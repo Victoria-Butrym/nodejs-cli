@@ -3,7 +3,6 @@ const Board = require('./board.model');
 const BOARDS = [new Board()];
 
 const getAll = async () => {
-  // Promise.reject(new Error('promise reject'));
   return BOARDS;
 };
 

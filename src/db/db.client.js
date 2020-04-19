@@ -29,7 +29,7 @@ const connectToDB = callback => {
   const db = mongoose.connection;
   db.on('error', console.error.bind(console, 'connection error:'));
   db.once('open', () => {
-    console.log("we're connected");
+    console.log('Connected to DataBase!');
     // db.dropDatabase();
     // saveToDB(DOCUMENTS);
     USERS.forEach(user => user.save());
