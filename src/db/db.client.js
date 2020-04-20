@@ -12,14 +12,6 @@ const USERS = [
 const BOARDS = [new Board(), new Board()];
 const TASKS = [new Task(), new Task()];
 
-// const DOCUMENTS = [USERS, BOARDS, TASKS];
-
-// const saveToDB = docs => {
-//   docs.forEach(doc => {
-//     doc.forEach(el => el.save);
-//   });
-// };
-
 const connectToDB = callback => {
   mongoose.connect(MONGO_CONNECTION_STRING, {
     useNewUrlParser: true,
@@ -30,11 +22,12 @@ const connectToDB = callback => {
   db.on('error', console.error.bind(console, 'connection error:'));
   db.once('open', () => {
     console.log('Connected to DataBase!');
-    // db.dropDatabase();
-    // saveToDB(DOCUMENTS);
+    db.dropDatabase();
+
     USERS.forEach(user => user.save());
     BOARDS.forEach(board => board.save());
     TASKS.forEach(task => task.save());
+
     callback();
   });
 };

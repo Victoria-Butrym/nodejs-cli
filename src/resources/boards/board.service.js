@@ -5,10 +5,7 @@ const getAll = async () => {
   return await boardRepo.getAll();
 };
 
-const getBoard = async boardId => {
-  const board = await boardRepo.getBoard(boardId);
-  return board;
-};
+const getBoard = async boardId => await boardRepo.getBoard(boardId);
 
 const createBoard = async boardData => await boardRepo.createBoard(boardData);
 

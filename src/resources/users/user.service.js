@@ -3,37 +3,16 @@ const taskService = require('../tasks/task.service');
 
 const getAll = () => usersRepo.getAll();
 
-const getUser = async id => {
-  const user = await usersRepo.getUser(id);
-  if (user) {
-    return { code: 200, body: user };
-  }
-  return { code: 404, body: 'USER_NOT_FOUND' };
-};
+const getUser = async id => await usersRepo.getUser(id);
 
-const createUser = async userData => {
-  const newUser = await usersRepo.createUser(userData);
-  if (newUser) {
-    return { code: 200, body: newUser };
-  }
-  return { code: 404, body: 'USER_NOT_FOUND' };
-};
+const createUser = async userData => await usersRepo.createUser(userData);
 
-const updateUser = async (id, userData) => {
-  const newUser = await usersRepo.updateUser(id, userData);
-
-  if (newUser) {
-    return { code: 200, body: newUser };
-  }
-  return { code: 404, body: 'USER_NOT_FOUND' };
-};
+const updateUser = async (id, userData) =>
+  await usersRepo.updateUser(id, userData);
 
 const deleteUser = async id => {
   await taskService.unassignUser(id);
-  const users = await usersRepo.deleteUser(id);
-  if (users) {
-    return { code: 200, body: users };
-  }
-  return { code: 404, body: 'USER_NOT_FOUND' };
+  const user = await usersRepo.deleteUser(id);
+  return user;
 };
 module.exports = { getAll, getUser, createUser, updateUser, deleteUser };
