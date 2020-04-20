@@ -38,7 +38,7 @@ router.route('/').post(async (req, res, next) => {
 
     const newUser = await usersService.createUser(userData);
     if (!newUser) {
-      throw new ErrorHandler(NOT_FOUND);
+      throw new ErrorHandler(NOT_FOUND, 'USER_NOT_FOUND');
     }
     return res.status(200).json(User.toResponse(newUser));
   } catch (error) {
@@ -56,7 +56,7 @@ router.route('/:id').put(async (req, res, next) => {
 
     const user = await usersService.updateUser(id, userData);
     if (!user) {
-      throw new ErrorHandler(NOT_FOUND);
+      throw new ErrorHandler(NOT_FOUND, 'USER_NOT_FOUND');
     }
     return res.status(200).json(user);
   } catch (error) {
@@ -70,7 +70,7 @@ router.route('/:id').delete(async (req, res, next) => {
 
     const user = await usersService.deleteUser(id);
     if (!user) {
-      throw new ErrorHandler(NOT_FOUND);
+      throw new ErrorHandler(NOT_FOUND, 'USER_NOT_FOUND');
     }
     return res.status(200).json(user);
   } catch (error) {
