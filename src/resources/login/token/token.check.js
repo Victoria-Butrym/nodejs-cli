@@ -17,27 +17,6 @@ const tokenCheck = (req, res, next) => {
   }
 
   const token = accessToken.split(' ')[1];
-  // console.log(chalk.red('@@@@@@@@@'), token);
-
-  // JWT.verify(token, JWT_SECRET_KEY, (err, decoded) => {
-  //   if (err) {
-  //     return res
-  //       .status(HttpStatus.UNAUTHORIZED)
-  //       .send('Access token is missing or invalid')
-  //       .end();
-  //   }
-  //   req.decoded = decoded;
-  //   next();
-  // });
-
-  // if (token) {
-  //   try {
-  //     JWT.verify(token, JWT_SECRET_KEY);
-  //     return true;
-  //   } catch (error) {
-  //     return false;
-  //   }
-  // }
 
   const verified = loginService.checkLogin(token);
   if (!verified) {
@@ -46,8 +25,6 @@ const tokenCheck = (req, res, next) => {
       .send('Access token is missing or invalid')
       .end();
   }
-
-  // console.log('auth-header:====', accessToken);
 
   next();
 };

@@ -10,9 +10,6 @@ router.route('/').get(async (req, res, next) => {
     if (!users) {
       throw new ErrorHandler(NOT_FOUND, 'USERS_NOT_FOUND');
     }
-    // users.map(user => {
-    //   console.log('PASSWORD: ', user.password);
-    // });
     res.json(users.map(User.toResponse));
   } catch (error) {
     return next(error);
@@ -27,7 +24,6 @@ router.route('/:id').get(async (req, res, next) => {
       throw new ErrorHandler(NOT_FOUND, 'USER_NOT_FOUND');
     }
 
-    console.log('GET-USER-PASSWORD: ', user.password);
     return res.status(OK).json(User.toResponse(user));
   } catch (error) {
     return next(error);
@@ -42,7 +38,6 @@ router.route('/').post(async (req, res, next) => {
     }
 
     const newUser = await usersService.createUser(userData);
-    console.log('NEW-USER-PASSWORD: ', newUser.password);
     if (!newUser) {
       throw new ErrorHandler(NOT_FOUND, 'USER_NOT_FOUND');
     }

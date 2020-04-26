@@ -34,14 +34,6 @@ const connectToDB = callback => {
 
         callback();
       });
-
-    // User.create({ name: 'admin', login: 'admin', password: 'admin' }); // fails after several tests
-
-    // USERS.forEach(user => user.save());
-    // BOARDS.forEach(board => board.save());
-    // TASKS.forEach(task => task.save());
-
-    // callback();
   });
 };
 
