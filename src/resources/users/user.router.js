@@ -2,7 +2,7 @@ const router = require('express').Router();
 const User = require('./user.model');
 const usersService = require('./user.service');
 const { ErrorHandler } = require('../../common/logger');
-const { BAD_REQUEST, NOT_FOUND } = require('http-status-codes');
+const { BAD_REQUEST, NOT_FOUND, OK } = require('http-status-codes');
 
 router.route('/').get(async (req, res, next) => {
   try {
@@ -10,6 +10,9 @@ router.route('/').get(async (req, res, next) => {
     if (!users) {
       throw new ErrorHandler(NOT_FOUND, 'USERS_NOT_FOUND');
     }
+    // users.map(user => {
+    //   console.log('PASSWORD: ', user.password);
+    // });
     res.json(users.map(User.toResponse));
   } catch (error) {
     return next(error);
@@ -23,7 +26,9 @@ router.route('/:id').get(async (req, res, next) => {
     if (!user) {
       throw new ErrorHandler(NOT_FOUND, 'USER_NOT_FOUND');
     }
-    return res.status(200).json(User.toResponse(user));
+
+    console.log('GET-USER-PASSWORD: ', user.password);
+    return res.status(OK).json(User.toResponse(user));
   } catch (error) {
     return next(error);
   }
@@ -37,10 +42,11 @@ router.route('/').post(async (req, res, next) => {
     }
 
     const newUser = await usersService.createUser(userData);
+    console.log('NEW-USER-PASSWORD: ', newUser.password);
     if (!newUser) {
       throw new ErrorHandler(NOT_FOUND, 'USER_NOT_FOUND');
     }
-    return res.status(200).json(User.toResponse(newUser));
+    return res.status(OK).json(User.toResponse(newUser));
   } catch (error) {
     return next(error);
   }
@@ -58,7 +64,7 @@ router.route('/:id').put(async (req, res, next) => {
     if (!user) {
       throw new ErrorHandler(NOT_FOUND, 'USER_NOT_FOUND');
     }
-    return res.status(200).json(user);
+    return res.status(OK).json(user);
   } catch (error) {
     return next(error);
   }
@@ -72,7 +78,7 @@ router.route('/:id').delete(async (req, res, next) => {
     if (!user) {
       throw new ErrorHandler(NOT_FOUND, 'USER_NOT_FOUND');
     }
-    return res.status(200).json(user);
+    return res.status(OK).json(user);
   } catch (error) {
     return next(error);
   }

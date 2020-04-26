@@ -3,6 +3,7 @@ const { MONGO_CONNECTION_STRING } = require('../common/config');
 const User = require('../resources/users/user.model');
 const Board = require('../resources/boards/board.model');
 const Task = require('../resources/tasks/task.model');
+const { createUser } = require('../resources/users/user.service');
 
 const USERS = [
   new User({ name: 'name1', login: 'login1', password: 'password1' }),
@@ -22,13 +23,25 @@ const connectToDB = callback => {
   db.on('error', console.error.bind(console, 'connection error:'));
   db.once('open', () => {
     console.log('Connected to DataBase!');
-    db.dropDatabase();
+    db.dropDatabase()
+      .then(() => {
+        createUser({ name: 'admin', login: 'admin', password: 'admin' });
+      })
+      .then(() => {
+        USERS.forEach(user => user.save());
+        BOARDS.forEach(board => board.save());
+        TASKS.forEach(task => task.save());
 
-    USERS.forEach(user => user.save());
-    BOARDS.forEach(board => board.save());
-    TASKS.forEach(task => task.save());
+        callback();
+      });
 
-    callback();
+    // User.create({ name: 'admin', login: 'admin', password: 'admin' }); // fails after several tests
+
+    // USERS.forEach(user => user.save());
+    // BOARDS.forEach(board => board.save());
+    // TASKS.forEach(task => task.save());
+
+    // callback();
   });
 };
 
